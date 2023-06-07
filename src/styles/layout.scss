@@ -1,0 +1,177 @@
+@import "./fonts.css";
+@import "./colors.scss";
+
+* {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica", monospace;
+  font-size: 16px;
+  color: $darkGreen;
+  background-color: $lighterBrown;
+}
+
+#__next {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-wrap: break-word;
+}
+
+ul,
+ol {
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+// Header Start
+
+header {
+  background-color: $lightBrown;
+
+  & > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 2em;
+  }
+
+  & ul li + li {
+    padding-left: 1em;
+  }
+
+  & .nav-list a + a {
+    padding-left: 1em;
+  }
+
+  & .side-nav-list,
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.logo {
+  font-size: 2em;
+}
+
+@media screen and (width < 480px) {
+  header {
+    & .nav-list {
+      display: none;
+    }
+
+    & .side-nav-list,
+    .nav-toggle {
+      display: unset;
+    }
+
+    .side-nav-list {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 4em 5% 1em;
+      background-color: $lightBrown;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+      & > a {
+        font-size: 1.2em;
+        font-weight: 500;
+      }
+      & > a + a {
+        margin-top: 0.5em;
+      }
+    }
+
+    .side-nav-list.hide {
+      right: -100%;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      padding: 0.5em;
+      top: 1em;
+      right: 1em;
+      z-index: 3;
+    }
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+}
+
+// Header End
+
+// Main Content Start
+
+#main-content {
+  padding: 1em 1.5em;
+}
+
+// Main Content End
+
+// Footer Start
+
+footer {
+  background-color: $lightBrown;
+  & .container {
+    padding: 0.5em 1em;
+  }
+}
+
+// Footer End
+
+// Basic Layout
+.row {
+  display: flex;
+
+  &.row-center {
+    align-items: center;
+  }
+}
